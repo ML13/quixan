@@ -22,11 +22,8 @@
     "@ng-bootstrap/ng-bootstrap": "^5.1.1",
     "@ngrx/effects": "^8.3.0",
     "@ngrx/store": "^8.3.0",
-<<<<<<< HEAD
     "@ngrx/store-devtools": "^8.3.0",
-=======
     "bootstrap": "^4.3.1",
->>>>>>> c3656ea6feb00bdbac06e714ae64588f1149905e
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
