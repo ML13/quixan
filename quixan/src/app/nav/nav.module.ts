@@ -15,6 +15,9 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     SharedModule
   ],
+  exports: [
+    NavBarComponent
+  ],
   providers: [SearchService]
 })
 export class NavModule {

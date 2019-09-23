@@ -12,7 +12,10 @@ import { SharedModule } from '../shared/shared.module';
     CommentsComponent
   ],
   imports: [
-    SharedModule
+  SharedModule
+  ],
+  exports: [
+    ContentComponent
   ]
 })
 export class ContentModule { }

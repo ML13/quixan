@@ -12,15 +12,12 @@ import { ArticleService } from 'src/app/core/article.service';
 export class NavBarComponent implements OnInit {
 
   authors: Author[];
-  articles: Article[];
 
   constructor(
-    private authorService: AuthorService,
-    private articleService: ArticleService) { }
+    private authorService: AuthorService) { }
 
   ngOnInit() {
     this.getAuthors();
-    this.getArticle();
   }
 
   getAuthors(): void {
@@ -31,12 +28,6 @@ export class NavBarComponent implements OnInit {
       });
   }
 
-  getArticle(): void {
-    this.articleService.getArticles()
-      .subscribe(articles => {
-        console.log(articles);
-        this.articles = articles;
-      });
-  }
+  
 
 }
