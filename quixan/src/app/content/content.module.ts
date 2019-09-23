@@ -13,6 +13,9 @@ import { CommentsComponent } from './comments/comments.component';
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    ContentComponent
   ]
 })
 export class ContentModule { }

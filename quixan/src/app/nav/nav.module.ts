@@ -16,6 +16,9 @@ import { SearchComponent } from './search/search.component';
   imports: [
     CommonModule
   ],
+  exports: [
+    NavBarComponent
+  ],
   providers: [SearchService]
 })
 export class NavModule { }
