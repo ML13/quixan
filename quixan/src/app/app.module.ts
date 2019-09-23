@@ -8,7 +8,7 @@ import { ContentModule } from './content/content.module';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 import { HttpClientModule } from '@angular/common/http';
-import { AppStoreModule } from './store/store.module';
+import { AppStoreModule } from './store/appStore.module';
 
 
 @NgModule({
