@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import { ContentComponent } from './content/content.component';
 import { ArticleItemComponent } from './article-item/article-item.component';
 import { CommentsComponent } from './comments/comments.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -12,7 +12,7 @@ import { CommentsComponent } from './comments/comments.component';
     CommentsComponent
   ],
   imports: [
-    CommonModule
+  SharedModule
   ],
   exports: [
     ContentComponent

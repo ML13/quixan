@@ -1,26 +1,6 @@
 <div class="articles">
-    <div class="articleItem">
-        <h3>Prvy clanok - Nadpis</h3>
-        <p>Uvodny text clanku</p>
-    </div>
-    <hr>
-    <div class="articleItem">
-        <h3>Prvy clanok - Nadpis</h3>
-        <p>Uvodny text clanku</p>
-    </div>
-    <hr>
-    <div class="articleItem">
-        <h3>Prvy clanok - Nadpis</h3>
-        <p>Uvodny text clanku</p>
-    </div>
-    <hr>
-    <div class="articleItem">
-        <h3>Prvy clanok - Nadpis</h3>
-        <p>Uvodny text clanku</p>
-    </div>
-    <hr>
-    <div class="articleItem">
-        <h3>Prvy clanok - Nadpis</h3>
-        <p>Uvodny text clanku</p>
+    <div class="articleItem" *ngFor="let article of articles">    
+        <h3> {{article.title}}   </h3>
+        <hr>
     </div>
 </div>

@@ -9,5 +9,6 @@ import { ArticleService } from '../core/article.service';
   imports: [
     CommonModule
   ],
+  exports: [CommonModule]
 })
 export class SharedModule { }
