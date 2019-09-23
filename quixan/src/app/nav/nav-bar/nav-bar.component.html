@@ -1,7 +1,11 @@
 <ul class="authors">
-  <li *ngFor="let author of authors">
-    
-      <span class="badge">{{ author.id}}</span> {{author.first_name}} {{author.last_name}}
-    
+  <li *ngFor="let author of authors">    
+      <span class="badge">{{ author.id}}</span> {{author.first_name}} {{author.last_name}}    
+  </li>
+</ul>
+
+<ul class="articles">
+  <li *ngFor="let article of articles">    
+      <span class="badge">{{ article.id}}</span> {{article.title}}   
   </li>
 </ul>
