@@ -1,1 +1,25 @@
-<p>comments works!</p>
+<div class="commentBox">
+    <h4>Komentáre:</h4>
+    <ul ng-repeat="comment in listCtrl.list">
+      <blockquote>
+        Telo komentára
+        <cite class="clearfix">— Autor</cite>
+      </blockquote>
+    </ul>
+  <!--  Comment Form -->
+  <form name="commentForm" ng-controller="CommentController as commentCtrl"
+    ng-submit="commentCtrl.addComment(listCtrl.list)">
+    <!--  Comment Form -->
+    <h4>Pridaj komentár</h4>
+    <fieldset class="form-group">
+      <textarea ng-model="commentCtrl.comment.body" class="form-control" placeholder="Komentár"
+        title="Review"></textarea>
+    </fieldset>
+    <fieldset class="form-group">
+      <input ng-model="commentCtrl.comment.author" class="form-control" placeholder="Meno" title="Email" />
+    </fieldset>
+    <fieldset class="form-group">
+      <input type="submit" class="btn btn-primary pull-right" value="Pridaj" />
+    </fieldset>
+  </form>
+</div>
