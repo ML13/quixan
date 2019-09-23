@@ -18,10 +18,14 @@ export class AuthorService {
       'Content-Type': 'application/json',
       'Authorization': this.authToken
     });
-    return this.http.get<Author[]>(this.authorsUrl, { headers: httpHeaders })
+
+    return this.http.get<any>(this.authorsUrl, { headers: httpHeaders })
       .pipe(
-        map(author => author.result),
-        tap(_ => this.log('fetched authors'))
+        tap(_ => this.log('fetched authors')),
+        map(response =>  {
+           const author = [ ...response.result] as Author[];
+           return author;
+        })
       );
   }
 
