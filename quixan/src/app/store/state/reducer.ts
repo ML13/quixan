@@ -4,19 +4,19 @@ import { QuixanState, initialState } from './state';
 
 export function quixanReducer(state = initialState, action: QuixanActions): QuixanState {
   switch (action.type) {
-    case QuixanActionsTypes.LoadAuthor:
+    case QuixanActionsTypes.LoadAuthors:
       return {
         ...state,
         error: null
       }
       break;
-    case QuixanActionsTypes.LoadAuthorFail:
+    case QuixanActionsTypes.LoadAuthorsFail:
       return {
         ...state,
         error: action.payload
       }
       break;
-    case QuixanActionsTypes.LoadAuthorSuccess:
+    case QuixanActionsTypes.LoadAuthorsSuccess:
       return {
         ...state,
         authors: action.payload,
@@ -25,6 +25,9 @@ export function quixanReducer(state = initialState, action: QuixanActions): Quix
       break;
 
     default:
+      return {
+        ...state
+      }
       break;
   }
 }

@@ -1,1 +1,7 @@
-<p>nav-bar works!</p>
+<ul class="authors">
+  <li *ngFor="let author of authors">
+    
+      <span class="badge">{{ author.id}}</span> {{author.first_name}} {{author.last_name}}
+    
+  </li>
+</ul>

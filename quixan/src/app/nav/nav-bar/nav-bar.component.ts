@@ -1,4 +1,6 @@
+import { AuthorService } from './../../core/author.service';
 import { Component, OnInit } from '@angular/core';
+import { Author } from 'src/app/core/author.model';
 
 @Component({
   selector: 'app-nav-bar',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
 
-  constructor() { }
+  authors: Author[];
+
+  constructor(private authorService: AuthorService) { }
 
   ngOnInit() {
+    this.getAuthors();
+  }
+
+  getAuthors(): void {
+    this.authorService.getAuthors()
+      .subscribe(authors => {
+        console.log(authors),
+        this.authors = authors
+      });
   }
 
 }

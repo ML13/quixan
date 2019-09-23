@@ -3,28 +3,28 @@ import { Author } from 'src/app/core/author.model';
 import { LocalizedErrorInfo } from 'src/app/shared/models/error-info.model';
 
 export enum QuixanActionsTypes {
-  LoadAuthor = '[Authors] Load Authors Items',
-  LoadAuthorSuccess = '[Authors] Load Authors Success',
-  LoadAuthorFail = '[Authors] Load Authors Fail'
+  LoadAuthors = '[Authors] Load Authors Items',
+  LoadAuthorsSuccess = '[Authors] Load Authors Success',
+  LoadAuthorsFail = '[Authors] Load Authors Fail'
 }
 
-export class LoadAuthor implements Action {
-  readonly type = QuixanActionsTypes.LoadAuthor;
+export class LoadAuthors implements Action {
+  readonly type = QuixanActionsTypes.LoadAuthors;
 }
 
-export class LoadAuthorSuccess implements Action {
-  readonly type = QuixanActionsTypes.LoadAuthorSuccess;
+export class LoadAuthorsSuccess implements Action {
+  readonly type = QuixanActionsTypes.LoadAuthorsSuccess;
 
   constructor(public payload: Author[]) { }
 }
 
-export class LoadAuthorFail implements Action {
-  readonly type = QuixanActionsTypes.LoadAuthorFail;
+export class LoadAuthorsFail implements Action {
+  readonly type = QuixanActionsTypes.LoadAuthorsFail;
 
   constructor(public payload: LocalizedErrorInfo) { }
 }
 
 export type QuixanActions =
-| LoadAuthor
-| LoadAuthorSuccess
-| LoadAuthorFail;
+| LoadAuthors
+| LoadAuthorsSuccess
+| LoadAuthorsFail;
