@@ -1,7 +1,15 @@
-<div class="articles">
+<div class="articles"
+    *ngIf="authorSelectorService.IsReady$ | async; else loadingData">
     <div class="articleItem" *ngFor="let article of articles$ | async">
       <a routerLink="article/{{article.id}}"><h3> {{article.title}}   </h3></a>
       <hr>
   </div>
 </div>
 
+<ng-template #loadingData>
+  <div class="d-flex justify-content-center">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+</ng-template>
