@@ -11,6 +11,7 @@ import * as QuixanAction from 'src/app/store/state/actions';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent implements OnInit {
   title = 'quixan';
   constructor(
@@ -24,3 +25,4 @@ export class AppComponent implements OnInit {
     this.store.dispatch(new QuixanAction.LoadAuthors());
   }
 }
+
