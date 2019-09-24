@@ -14,6 +14,7 @@ export class AuthorEffects {
   constructor(
     private actions$: Actions,
     private authorService: AuthorService,
+
   ) { }
 
   @Effect()
@@ -28,4 +29,17 @@ export class AuthorEffects {
       )
     )
   );
+
+  // @Effect()
+  // loadArticles$: Observable<Action> = this.actions$.pipe(
+  //   ofType(QuixanActionsTypes.SetCurrentAuthor),
+  //   switchMap(() =>
+  //     this.authorService.getAuthors().pipe(
+  //       map(authors => new quixanActions.LoadAuthorsSuccess(authors)),
+  //       catchError((err: LocalizedErrorInfo) =>
+  //         of(new quixanActions.LoadAuthorsFail(err))
+  //       )
+  //     )
+  //   )
+  // );
 }
