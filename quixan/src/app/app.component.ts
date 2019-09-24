@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Author } from './core/author.model';
-import { getAuthorList } from './store/state/selectors';
+
+import { QuixanState } from './store/state/state';
+import * as QuixanAction from 'src/app/store/state/actions';
 
 @Component({
   selector: 'app-root',
@@ -12,13 +14,13 @@ import { getAuthorList } from './store/state/selectors';
 export class AppComponent implements OnInit {
   title = 'quixan';
   constructor(
-    private store: Store<any>
-  ) {}
+    private store: Store<QuixanState>,
+
+  ) { }
 
   authors$: Observable<Author[]>;
 
   ngOnInit(): void {
-    this.authors$ = this.store.select(getAuthorList);
-
+    this.store.dispatch(new QuixanAction.LoadAuthors());
   }
 }
