@@ -8,13 +8,12 @@ import { switchMap, map, catchError, mergeMap } from 'rxjs/operators';
 import { LocalizedErrorInfo } from 'src/app/shared/models/error-info.model';
 import * as quixanActions from './actions';
 
-
 @Injectable()
 export class AuthorEffects {
 
   constructor(
     private actions$: Actions,
-    private authorService: AuthorService
+    private authorService: AuthorService,
   ) { }
 
   @Effect()
