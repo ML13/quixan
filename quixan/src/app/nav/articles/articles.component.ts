@@ -24,6 +24,7 @@ export class ArticlesComponent implements OnInit {
     this.displayArticles();
   }
 
+
   displayArticles(): void {
     this.articles$ = this.authorSelectorService.CurrentAuthor$.pipe(
       switchMap(

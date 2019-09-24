@@ -6,10 +6,8 @@
         <cite class="clearfix">— Autor</cite>
       </blockquote>
     </ul>
-  <!--  Comment Form -->
   <form name="commentForm" ng-controller="CommentController as commentCtrl"
     ng-submit="commentCtrl.addComment(listCtrl.list)">
-    <!--  Comment Form -->
     <h4>Pridaj komentár</h4>
     <fieldset class="form-group">
       <textarea ng-model="commentCtrl.comment.body" class="form-control" placeholder="Komentár"
