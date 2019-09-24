@@ -5,6 +5,7 @@ import { ArticlesComponent } from './articles/articles.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SearchComponent } from './search/search.component';
 import { SharedModule } from '../shared/shared.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { SharedModule } from '../shared/shared.module';
     SearchComponent
   ],
   imports: [
-    SharedModule
+    SharedModule,
+    RouterModule
   ],
   exports: [
     NavBarComponent

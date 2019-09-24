@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ArticleService } from 'src/app/core/article.service';
+import { Article } from 'src/app/core/article.model';
 
 @Component({
   selector: 'app-article-item',
@@ -6,10 +9,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./article-item.component.scss']
 })
 export class ArticleItemComponent implements OnInit {
-
-  constructor() { }
+  @Input() article: Article;
 
   ngOnInit() {
+    console.log("item:" + this.article);
   }
 
 }

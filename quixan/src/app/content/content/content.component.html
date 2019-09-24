@@ -1,2 +1,4 @@
-<app-article-item></app-article-item>
+{{ article | json }}
+<app-article-item [article]="article"></app-article-item>
+<button (click)="setArticle()">button</button>
 <app-comments></app-comments>

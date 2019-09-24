@@ -29,6 +29,25 @@ export class ArticleService {
     );
   }
 
+  getArticle(id: number): Observable<Article> {this.log(this.articlesUrl + '/' + id.toString());
+    
+    const httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.authToken
+    })
+    return this.http.get<any>(this.articlesUrl + '/' + id.toString(), { headers: httpHeaders })
+    .pipe(
+      tap(_ => this.log('fetched article ' + this.articlesUrl + '/' + id.toString())),
+      map(response =>  {
+         const article = response.result as Article;
+         return article;
+      })
+    );
+  }
+  
+
+
+
   private log(message: string) {
     console.log(`AuthorService: ${message}`);
   }
