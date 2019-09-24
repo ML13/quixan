@@ -11,6 +11,8 @@ export class ArticleService {
 
   private articlesUrl = 'https://gorest.co.in/public-api/posts';
   private authToken = 'Bearer NmdVBVhKaxJ2K_vJnzpbh-TTivV7wVFkx6FR';
+  private articlesByAuthor = '?user_id=';
+
 
   constructor(private http: HttpClient) { }
 
@@ -44,9 +46,21 @@ export class ArticleService {
       tap(x => console.log('fetched article', x)),
     );
   }
-  
 
-
+  getArticlesByAuthor(id: number): Observable<Article[]> {
+    const httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': this.authToken
+    });
+    return this.http.get<any>(this.articlesUrl + this.articlesByAuthor + id, { headers: httpHeaders })
+    .pipe(
+      tap(_ => this.log('fetched articles by author')),
+      map(response =>  {
+         const article = [ ...response.result] as Article[];
+         return article;
+      })
+    );
+  }
 
   private log(message: string) {
     console.log(`AuthorService: ${message}`);

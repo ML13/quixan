@@ -6,6 +6,10 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SearchComponent } from './search/search.component';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
+import { StoreModule } from '@ngrx/store';
+import { quixanReducer } from '../store/state/reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthorEffects } from '../store/state/effects';
 
 @NgModule({
   declarations: [
@@ -15,7 +19,9 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     SharedModule,
-    RouterModule
+    RouterModule,
+    StoreModule.forRoot({common: quixanReducer}),
+    EffectsModule.forRoot([AuthorEffects]),
   ],
   exports: [
     NavBarComponent
@@ -23,5 +29,5 @@ import { RouterModule } from '@angular/router';
   providers: [SearchService]
 })
 export class NavModule {
- 
+
 }

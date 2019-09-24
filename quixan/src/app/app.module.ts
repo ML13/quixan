@@ -8,6 +8,8 @@ import { ContentModule } from './content/content.module';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 import { HttpClientModule } from '@angular/common/http';
+import { AppStoreModule } from './store/appStore.module';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     ContentModule,
     SharedModule,
     CoreModule,
-    HttpClientModule
+    HttpClientModule,
+    AppStoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,7 @@
 export class Author {
     id: number;
-    first_name: string;
-    last_name: string;
+    firstName: string;
+    lastName: string;
     gender: string;
     dob: string;
     email: string;
