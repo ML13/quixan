@@ -1,7 +1,9 @@
 <div  class="md-form mt-0">
-    <select class="custom-select" id="inputGroupSelect01">
+    <select class="custom-select" (change)="selectOption($event.target.value)" id="inputGroupSelect01">
       <option selected>Choose author</option>
-      <option *ngFor="let author of authorSelectorService.ListOfAuthors$ | async" >{{author.first_name}}</option>
+      <option
+      *ngFor="let author of authorSelectorService.ListOfAuthors$ | async"
+      [value]="author.id">{{author.first_name}} {{author.last_name}}</option>
     </select>
 </div>
 

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, observable } from 'rxjs';
-import { Author } from 'src/app/core/author.model';
 import { AuthorSelectorService } from 'src/app/store/state/selectors';
-
-
+import { ArticleService } from 'src/app/core/article.service';
+import { QuixanState } from 'src/app/store/state/state';
+import { Store } from '@ngrx/store';
+import * as QuixanAction from 'src/app/store/state/actions';
 
 @Component({
   selector: 'app-search',
@@ -13,9 +13,19 @@ import { AuthorSelectorService } from 'src/app/store/state/selectors';
 export class SearchComponent implements OnInit {
 
   constructor(
-    public authorSelectorService: AuthorSelectorService
-  ) {}
+    public authorSelectorService: AuthorSelectorService,
+    private articleService: ArticleService,
+    private store: Store<QuixanState>,
+
+  ) { }
 
   ngOnInit() {
   }
+
+  selectOption(id: number) {
+    console.log(id);
+    this.articleService.getArticlesByAuthor(id);
+    this.store.dispatch(new QuixanAction.SetCurrentAuthorSuccess(id));
+  }
+
 }
