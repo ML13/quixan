@@ -21,7 +21,6 @@ export class ArticlesComponent implements OnInit {
   getArticle(): void {
     this.articleService.getArticles()
       .subscribe(articles => {
-        console.log(articles);
         this.articles = articles;
       });
   }

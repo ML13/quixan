@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { ArticleService } from 'src/app/core/article.service';
 import { Article } from 'src/app/core/article.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-article-item',
@@ -9,10 +8,11 @@ import { Article } from 'src/app/core/article.model';
   styleUrls: ['./article-item.component.scss']
 })
 export class ArticleItemComponent implements OnInit {
-  @Input() article: Article;
+  @Input() article$: Observable<Article>;
+
+  constructor() {}
 
   ngOnInit() {
-    console.log("item:" + this.article);
   }
 
 }

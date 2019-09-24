@@ -7,7 +7,6 @@ import { ContentComponent } from './content/content/content.component';
 
 
 const routes: Routes = [
-  { path: '', component: NavBarComponent},
   { path: 'article/:id', component: ContentComponent}
 ];
 

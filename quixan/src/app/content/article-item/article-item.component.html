@@ -1,5 +1,4 @@
-<div class="articleItem">
-    <div>{{ article | json }}</div>
+<div class="articleItem" *ngIf="article$ | async as article">
     <h2>{{article.title}}</h2>
     <h4>Autor, datum </h4>
     <p>{{article.body}}</p>

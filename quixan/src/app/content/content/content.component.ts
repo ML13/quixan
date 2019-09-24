@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ArticleService } from 'src/app/core/article.service';
 import { Article } from 'src/app/core/article.model';
-import { Title } from '@angular/platform-browser';
-import { tap, catchError } from 'rxjs/operators';
+import { Subject, Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-content',
@@ -11,8 +11,10 @@ import { tap, catchError } from 'rxjs/operators';
   styleUrls: ['./content.component.scss']
 })
 export class ContentComponent implements OnInit {
-  
   article: Article;
+  article$: Observable<Article>;
+
+  route$: Subject<number> = new Subject();
 
   constructor(
     private route: ActivatedRoute,
@@ -20,28 +22,16 @@ export class ContentComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getArticle();
+    this.getArticle();    
   }
 
-  getArticle(): void {
-    this.route.paramMap.pipe(
-      tap(() => console.log('route changed')),
-      catchError(err => {
-        console.log('error', err);
-        return []
-      })
-    ).subscribe(
-      routeParams => {
-        this.articleService.getArticle(+routeParams.get('id')).subscribe(article => {
-          this.article = article
-          console.log('current article', this.article);
-        });
-      })
+  getArticle() {
+    this.route.toString().split('/');
+      this.article$ = this.route.paramMap.pipe(
+        switchMap(params => {
+          const id = params.get('id');
+          return this.articleService.getArticle(+id);
+        })
+      )      
   }
-
-  setArticle(): void {
-    this.article = new Article;
-    this.article.title = "nadpis";
-  }
-
 }

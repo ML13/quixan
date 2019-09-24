@@ -10,7 +10,7 @@ import { map, tap } from 'rxjs/operators';
 export class ArticleService {
 
   private articlesUrl = 'https://gorest.co.in/public-api/posts';
-  private authToken = 'Bearer W7fyipwQdZWpqX4pg9NAGcIta_LEv5j4209N';
+  private authToken = 'Bearer NmdVBVhKaxJ2K_vJnzpbh-TTivV7wVFkx6FR';
 
   constructor(private http: HttpClient) { }
 
@@ -37,11 +37,11 @@ export class ArticleService {
     })
     return this.http.get<any>(this.articlesUrl + '/' + id.toString(), { headers: httpHeaders })
     .pipe(
-      tap(_ => this.log('fetched article ' + this.articlesUrl + '/' + id.toString())),
       map(response =>  {
          const article = response.result as Article;
          return article;
-      })
+      }),
+      tap(x => console.log('fetched article', x)),
     );
   }
   
