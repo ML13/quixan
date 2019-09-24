@@ -21,6 +21,11 @@ export const getError = createSelector(
   state => state.error
 );
 
+export const getIsReady = createSelector(
+  getQuixanState,
+  state => state.isReady
+);
+
 @Injectable({ providedIn: 'root' })
 export class AuthorSelectorService {
   constructor(
@@ -33,5 +38,9 @@ export class AuthorSelectorService {
 
   get CurrentAuthor$(): Observable<Author> {
     return this.store.select(getCurrentAuthor);
+  }
+
+  get IsReady$(): Observable<boolean> {
+    return this.store.select(getIsReady);
   }
 }

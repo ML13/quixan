@@ -24,23 +24,7 @@ export class ArticlesComponent implements OnInit {
 
   ngOnInit() {
     this.displayArticles();
-    this.jahoda();
-    // this.articles$ = this.displayArticles;
   }
-
-  // private get displayArticles(): Observable<any> {
-  //   this.articles$ = null;
-  //   this.isReady = false;
-  //   return this.authorSelectorService.CurrentAuthor$.pipe(
-  //     switchMap(
-  //       author => author === null ? this.articleService.getArticles() : this.articleService.getArticlesByAuthor(author.id),
-  //     ),
-  //     () => this.isReady = true,
-  //     tap(
-  //       author => console.log(author)
-  //     )
-  //   );
-  // }
 
   displayArticles(): void {
     this.articles$ = this.authorSelectorService.CurrentAuthor$.pipe(
@@ -48,12 +32,5 @@ export class ArticlesComponent implements OnInit {
         author => author === null ? this.articleService.getArticles() : this.articleService.getArticlesByAuthor(author.id),
       ),
     );
-    // this.isReady = true;
-
-  }
-
-  jahoda(): void {
-    this.isReady$ = of(false);
-    this.articles$.pipe(map(() => this.isReady$ = of(true)));
   }
 }

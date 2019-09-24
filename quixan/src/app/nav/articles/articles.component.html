@@ -1,18 +1,10 @@
 <div class="articles"
-    *ngIf="articles$ |async; else loadingData">
+    *ngIf="authorSelectorService.IsReady$ | async; else loadingData">
     <div class="articleItem" *ngFor="let article of articles$ | async">
       <h3> {{article.title}} </h3>
       <hr>
   </div>
 </div>
-
-<!-- <div class="articles"
-    *ngIf="articles$ | async; else loadingData">
-    <div class="articleItem" *ngFor="let article of articles$ | async">
-      <h3> {{article.title}} </h3>
-      <hr>
-  </div>
-</div> -->
 
 <ng-template #loadingData>
   <div class="d-flex justify-content-center">

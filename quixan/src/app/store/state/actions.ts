@@ -29,6 +29,8 @@ export class LoadAuthorsFail implements Action {
 
 export class SetCurrentAuthor implements Action {
   readonly type = QuixanActionsTypes.SetCurrentAuthor;
+
+  constructor(public payload: number) {}
 }
 
 export class SetCurrentAuthorFail implements Action {

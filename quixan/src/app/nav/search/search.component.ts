@@ -24,8 +24,8 @@ export class SearchComponent implements OnInit {
 
   selectOption(id: number) {
     console.log(id);
+    this.store.dispatch(new QuixanAction.SetCurrentAuthor(id));
     this.articleService.getArticlesByAuthor(id);
-    this.store.dispatch(new QuixanAction.SetCurrentAuthorSuccess(id));
   }
 
 }
